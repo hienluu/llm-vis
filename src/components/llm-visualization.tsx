@@ -29,8 +29,8 @@ function normalizeTopPProbabilities(probs: number[], topP: number): number[] {
 }
 
 export function LlmVisualization() {
-  const [temperature, setTemperature] = useState(1)
-  const [topP, setTopP] = useState(1)
+  const [temperature, setTemperature] = useState(0.5)
+  const [topP, setTopP] = useState(0.5)
   const [showFormula, setShowFormula] = useState(false)
 
   const adjustedProbs = useMemo(() => adjustProbabilities(initialProbabilities, temperature), [temperature])
@@ -65,7 +65,7 @@ export function LlmVisualization() {
               onValueChange={(value) => setTemperature(value[0])}
               max={1}
               min={0}
-              step={0.1}              
+              step={0.1}          
               className="max-w-full"
             />
             <div className="absolute top-1/2 left-0 right-0 flex justify-between pointer-events-none">
