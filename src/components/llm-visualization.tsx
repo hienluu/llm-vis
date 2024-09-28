@@ -92,13 +92,13 @@ export function LlmVisualization() {
                 y={380 - entry.original * 300}
                 fill="#000"
                 textAnchor="middle"
-                dy={-6}
+                dy={-6}                               
               >
                 {entry.original.toFixed(2)}
               </text>
             ))}
           </Bar>
-          <Bar dataKey="adjusted" fill="#82ca9d" name="Adjusted Probability">
+          <Bar dataKey="adjusted" fill="#066435" name="Adjusted Probability">
             {data.map((entry, index) => (
               <text
                 key={`adjusted-${index}`}
@@ -142,7 +142,7 @@ export function LlmVisualization() {
         <TableBody>
           {words.map((word, index) => (
             <TableRow key={word} className={cumulativeProbs[index] <= topP ? "bg-green-100" : "bg-gray-100"}>
-              <TableCell className="font-large font-bold">{word}</TableCell>
+              <TableCell className="font-bold text-xl">{word}</TableCell>
               <TableCell className="text-right">{adjustedProbs[index].toFixed(4)}</TableCell>
               {/* <TableCell className="text-right">{cumulativeProbs[index].toFixed(4)}</TableCell> */}
               <TableCell className="text-right">{normalizedProbs[index].toFixed(4)}</TableCell>
